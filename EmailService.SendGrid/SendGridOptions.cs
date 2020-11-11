@@ -1,6 +1,6 @@
 ﻿namespace EmailService.SendGrid
 {
-    public class SendGridSettings : ProviderSettings
+    public class SendGridOptions : ProviderOptions
     {
         public string ApiKey { get; set; } = "";
         public bool EnableClickTracking { get; set; } = false;

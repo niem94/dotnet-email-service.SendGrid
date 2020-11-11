@@ -9,14 +9,14 @@ namespace EmailService
     public static class ServiceCollectionExtensions
     {
         public static void AddSendGridEmailService(this IServiceCollection services,
-           Action<SendGridSettings> options)
+           Action<SendGridOptions> options)
         {
             services.Configure(options);
             services.AddTransient<IEmailService, SendGridEmailService>();
         }
 
         public static void AddSendGridEmailService(this IServiceCollection services,
-           SendGridSettings options)
+           SendGridOptions options)
         {
             services.ConfigureOptions(options);
             services.AddTransient<IEmailService, SendGridEmailService>();
