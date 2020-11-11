@@ -1,10 +1,7 @@
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Configuration;
 using System;
-using EmailService.Smtp;
-using EmailService.SendGrid;
 
-namespace EmailService
+namespace EmailService.SendGrid
 {
     public static class ServiceCollectionExtensions
     {

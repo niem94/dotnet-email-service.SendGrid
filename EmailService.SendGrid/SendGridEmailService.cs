@@ -1,31 +1,30 @@
 using System.Threading.Tasks;
-using EmailService.Models;
 using Microsoft.Extensions.Options;
 using SendGrid;
 using SendGrid.Helpers.Mail;
 
 namespace EmailService.SendGrid
 {
-    public class SendGridEmailService : EmailService<SendGridSettings>
+    public class SendGridEmailService : EmailService<SendGridOptions>
     {
         public SendGridClient SendGridClient { get; set; }
 
-        protected SendGridEmailService(IOptions<SendGridSettings> options) : base(options)
+        protected SendGridEmailService(IOptions<SendGridOptions> options) : base(options)
         {
-            SendGridClient = new SendGridClient(Settings.ApiKey);
+            SendGridClient = new SendGridClient(Options.ApiKey);
         }
 
         public override async Task SendEmailAsync(EmailMessage message)
         {
             SendGridMessage sendGridMessage = new SendGridMessage
             {
-                From = new EmailAddress(message.FromAdress, message.FromName),
+                From = new EmailAddress(message.FromAddress, message.FromName),
                 Subject = message.Subject,
                 PlainTextContent = message.Body,
                 HtmlContent = message.Body
             };
             sendGridMessage.AddTo(new EmailAddress(message.ToAddress, message.ToName));
-            sendGridMessage.SetClickTracking(Settings.EnableClickTracking, Settings.EnableClickTrackingText);
+            sendGridMessage.SetClickTracking(Options.EnableClickTracking, Options.EnableClickTrackingText);
             await SendGridClient.SendEmailAsync(sendGridMessage).ConfigureAwait(false);
         }
     }
