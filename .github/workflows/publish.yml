@@ -19,5 +19,5 @@ jobs:
         id: publish_nuget
         uses: rohith/publish-nuget@v2
         with:
-          PROJECT_FILE_PATH: EmailService/EmailService.csproj
+          PROJECT_FILE_PATH: EmailService.SendGrid/EmailService.SendGrid.csproj
           NUGET_KEY: ${{secrets.NUGET_API_KEY}}
