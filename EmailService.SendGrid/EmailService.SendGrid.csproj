@@ -3,7 +3,7 @@
     <OutputType>Library</OutputType>
     <TargetFramework>net5.0</TargetFramework>
     <PackageId>NidamTech.EmailService.SendGrid</PackageId>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <Authors>Nikolai Emil Damm</Authors>
     <PackageDescription>An extension for NidamTech.EmailService, to support SendGrid.</PackageDescription>
     <RepositoryUrl>https://github.com/niem94/dotnet-email-service</RepositoryUrl>

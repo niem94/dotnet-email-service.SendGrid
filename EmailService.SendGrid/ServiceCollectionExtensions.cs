@@ -11,12 +11,5 @@ namespace EmailService.SendGrid
             services.Configure(options);
             services.AddTransient<IEmailService, SendGridEmailService>();
         }
-
-        public static void AddSendGridEmailService(this IServiceCollection services,
-           SendGridOptions options)
-        {
-            services.ConfigureOptions(options);
-            services.AddTransient<IEmailService, SendGridEmailService>();
-        }
     }
 }
